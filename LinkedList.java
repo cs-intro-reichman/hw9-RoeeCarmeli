@@ -16,6 +16,15 @@ public class LinkedList {
 		size = 0;
 	}
 	
+/**
+	 * Gets the current size of the list
+	 *
+	 * @return The size of the list.
+	 */
+	public int getSize() {
+		return size;
+	}
+
 	/**
 	 * Gets the node located at the given index in this list. 
 	 * 
@@ -205,14 +214,10 @@ public class LinkedList {
 	 * A textual representation of this list, for debugging.
 	 */
 	public String toString() {
-		StringBuilder s = new StringBuilder("[");
-		for (int i = 0; i < size; i++){
-			s.append(getNode(i)).append(",");
+		String List = "";
+		for (int i = 0; i < size; i++) {
+			List = List  + getNode(i).toString();
 		}
-		if (size > 0) {
-			s.deleteCharAt(s.length() - 1);
-		}
-		s.append("]");
-		return s.toString();
+		return List;
 	}
 }
