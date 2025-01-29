@@ -111,6 +111,7 @@ public class MemorySpace {
 	 */
 	public void defrag() {
 		int i = 0;
+		
 		while (i < this.freeList.getSize()) {
 			MemoryBlock Block1 = freeList.getBlock(i);
 			int sum = Block1.baseAddress + Block1.length;
