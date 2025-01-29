@@ -62,18 +62,16 @@ public class MemorySpace {
 		
 		for (int i = 0; i < freeList.getSize(); i++) {
 			if (newNode.block.length >= length) {
-				MemoryBlock newAllocetedBlock = new MemoryBlock(newNode.block.baseAddress, length);
-				allocatedList.addLast(newAllocetedBlock);
+				MemoryBlock newBlock = new MemoryBlock(newNode.block.baseAddress,length);
+				allocatedList.addLast(newBlock);
 				newNode.block.length -= length;
 				newNode.block.baseAddress += length;
-				return newAllocetedBlock.baseAddress;
+				return newBlock.baseAddress;
 			} 
 			else {
 				newNode = newNode.next;
 			}
-
 		}
-		//// Replace the following statement with your code
 		return -1;
 	}
 
