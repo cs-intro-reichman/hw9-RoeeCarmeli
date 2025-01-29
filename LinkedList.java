@@ -33,7 +33,7 @@ public class LinkedList {
 	public Node getLast() {
 		return this.last;
 	}
-	
+
 /**
 	 * Gets the current size of the list
 	 *
@@ -145,7 +145,7 @@ public class LinkedList {
 	 *         if index is negative or greater than or equal to size
 	 */
 	public MemoryBlock getBlock(int index) {
-		if (index < 0 || index > size) {
+		if (index <= 0 || index > size) {
 			throw new IllegalArgumentException(
 				"index must be between 0 and size");
 			}
@@ -175,29 +175,21 @@ public class LinkedList {
 	 *        the node that will be removed from this list
 	 */
 	public void remove(Node node) {
-		if (first == null) {
-			return;
-		}
-
-		Node prev = null;
-		Node current = first;
-		while (current != null && current != node) {
-			prev = current;
-			current = current.next;
-		}
-		
-		if (current == null) {
-			throw new IllegalArgumentException("Node not found in the list");
-		}
-
-		if (prev == null) {
+		if (first == node){
 			first = first.next;
-			size--;
+			
+		}else{
+			if (last == node){
+				Node newlast = getNode(size-2);
+				newlast.next = null;
+				last = newlast;
+			}else{
+				getNode(indexOf(node.block)-1).next = node.next;
+			}
 		}
-		else if (current != null) {
-			prev.next = current.next;
-			size--;
-		}
+
+		size --;
+		if (getSize() == 0){last = null;}	
 	}
 
 	/**
