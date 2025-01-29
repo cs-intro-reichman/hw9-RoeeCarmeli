@@ -24,6 +24,15 @@ public class LinkedList {
 	public Node getFirst() {
 		return this.first;
 	}
+
+	/**
+	 * Gets the last node of the list
+	 *
+	 * @return The last node of the list.
+	 */
+	public Node getLast() {
+		return this.last;
+	}
 	
 /**
 	 * Gets the current size of the list
