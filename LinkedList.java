@@ -109,7 +109,6 @@ public class LinkedList {
 					getNode(index - 1).next = newNode;
 				}
 			}
-
 		size++;
 	}
 
@@ -178,12 +177,14 @@ public class LinkedList {
 		if (first == node){
 			first = first.next;
 			
-		}else{
+		}
+		else{
 			if (last == node){
 				Node newlast = getNode(size-2);
 				newlast.next = null;
 				last = newlast;
-			}else{
+			}
+			else{
 				getNode(indexOf(node.block)-1).next = node.next;
 			}
 		}
@@ -211,7 +212,7 @@ public class LinkedList {
 	 *         if the given memory block is not in this list
 	 */
 	public void remove(MemoryBlock block) {
-		remove(getNode(indexOf(block)));
+		remove(indexOf(block));
 	}	
 
 	/**
