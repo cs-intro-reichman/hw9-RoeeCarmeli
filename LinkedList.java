@@ -16,6 +16,15 @@ public class LinkedList {
 		size = 0;
 	}
 	
+	/**
+	 * Gets the first node of the list
+	 *
+	 * @return The first node of the list.
+	 */
+	public Node getFirst() {
+		return this.first;
+	}
+	
 /**
 	 * Gets the current size of the list
 	 *
@@ -40,8 +49,9 @@ public class LinkedList {
 					"index must be between 0 and size");
 		}
 		Node current = first;
-		for (int i = 0; i < index; i++){
+		while (index > 0) {
 			current = current.next;
+			index--;
 		}
 		return current;
 	}
@@ -72,24 +82,24 @@ public class LinkedList {
 			}
 		
 			Node newNode = new Node(block);
-		
-		if (size == 0) {
-			first = newNode;
-			last = newNode;
-		}
-		else if (index == 0) {
-			newNode.next = first;
-			first = newNode;
-		}
-		else if (index == size) {
-			last.next = newNode;
-			last = newNode;
-		}
-		else {
-			Node prevNode = getNode(index - 1);
-			newNode.next = prevNode.next;
-			prevNode.next = newNode;
-		}
+			
+			if (index == 0) {
+				newNode.next = first;
+				first = newNode;
+				if (size == 0) {
+					last = first;
+				}
+			}
+			else { 
+				if (index == size) {
+				last.next = newNode;
+				last = newNode;
+				}
+				else {
+					newNode.next = getNode(index);
+					getNode(index - 1).next = newNode;
+				}
+			}
 
 		size++;
 	}
