@@ -100,6 +100,7 @@ public class MemorySpace {
 					freeList.addLast(allocatedList.getBlock(i));
 					allocatedList.remove(allocatedList.getBlock(i));
 				}
+				defrag();
 			}
 		}
 	}
