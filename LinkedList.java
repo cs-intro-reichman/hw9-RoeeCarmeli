@@ -22,7 +22,7 @@ public class LinkedList {
 	 * @return The first node of the list.
 	 */
 	public Node getFirst() {
-		return this.first;
+		return first;
 	}
 
 	/**
@@ -31,7 +31,7 @@ public class LinkedList {
 	 * @return The last node of the list.
 	 */
 	public Node getLast() {
-		return this.last;
+		return last;
 	}
 
 /**
