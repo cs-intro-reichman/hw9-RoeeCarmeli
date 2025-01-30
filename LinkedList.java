@@ -175,12 +175,11 @@ public class LinkedList {
 	 */
 	public void remove(Node node) {
 		if (first == node){
-			first = first.next;
-			
+			first = first.next;	
 		}
 		else{
 			if (last == node){
-				Node newlast = getNode(size-2);
+				Node newlast = getNode(size - 2);
 				newlast.next = null;
 				last = newlast;
 			}
@@ -190,7 +189,7 @@ public class LinkedList {
 		}
 
 		size --;
-		if (getSize() == 0){last = null;}	
+		if (getSize() == 0)last = null;
 	}
 
 	/**
